@@ -1,0 +1,102 @@
+/* --- ANIMATIONS --- */
+
+/* Title Pulse: Text grows and glows slightly */
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); text-shadow: 0 0 0px rgba(255,255,255,0); }
+  50% { transform: scale(1.05); text-shadow: 0 0 15px rgba(255,255,255,0.6); }
+}
+
+/* Image Slow Slide: Image moves slightly side to side */
+@keyframes slowSlide {
+  0%, 100% { transform: scale(1.1) translateX(0); }
+  50% { transform: scale(1.2) translateX(-15px); }
+}
+
+.best-collections-section {
+  display: flex;
+  width: 100%;
+  min-height: 500px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.left-panel {
+  width: 30%;
+  background-color: #ff7a3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; 
+}
+
+.pulse-title {
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  /* Plays for 25 seconds */
+  animation: titlePulse 5s ease-in-out infinite; 
+}
+
+.right-panel {
+  width: 70%;
+  display: flex;
+  gap: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.collection-card {
+  position: relative;
+  flex: 1;
+  overflow: hidden; /* Keeps the zoom inside */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.image-zoom-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.collection-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* DIVE/SLIDE ANIMATION: Runs for 25 seconds total (5s x 5 reps) */
+  animation: slowSlide 5s ease-in-out 5; 
+}
+
+.label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  color: #333;
+  font-weight: bold;
+  padding: 15px 20px;
+  text-align: center;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+
+/* Hover Effects */
+.collection-card:hover .label {
+  background-color: #ff7a3d;
+  color: white;
+  padding-bottom: 25px; /* Lifts the label slightly */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .best-collections-section { flex-direction: column; }
+  .left-panel, .right-panel { width: 100%; }
+  .collection-card { flex-basis: calc(50% - 5px); min-height: 300px; }
+}

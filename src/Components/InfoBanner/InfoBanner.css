@@ -1,0 +1,72 @@
+/* src/components/InfoBanner.css */
+
+.bar {
+  height: 142px;
+  width: 100%;
+  color: rgb(255, 114, 32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Start hidden */
+  opacity: 0;
+  transform: scale(0.95);
+  /* Slower, smoother transition */
+  transition: 
+    opacity 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67),
+    transform 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67),
+    box-shadow 1.2s ease,
+    filter 1.2s ease;
+}
+
+/* Pop in with slow scale + fade + gentle bounce + glow */
+.bar.visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: popIn 1.2s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+  /* box-shadow: 0 6px 24px rgba(255, 114, 32, 0.4); */
+  /* filter: drop-shadow(0 4px 12px rgba(255, 114, 32, 0.3)); */
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+    box-shadow: 0 0 0 rgba(255, 114, 32, 0);
+    filter: drop-shadow(0 0 0 rgba(255, 114, 32, 0));
+  }
+  50% {
+    transform: scale(1.02); /* Gentle bounce */
+    /* box-shadow: 0 8px 32px rgba(255, 114, 32, 0.5); */
+    /* filter: drop-shadow(0 6px 16px rgba(255, 114, 32, 0.4)); */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    /* box-shadow: 0 6px 24px rgba(255, 114, 32, 0.4); */
+    /* filter: drop-shadow(0 4px 12px rgba(255, 114, 32, 0.3)); */
+  }
+}
+
+.bar h1 {
+  margin: 0;
+  padding: 0 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* Optional: add subtle text glow */
+  text-shadow: 0 2px 4px rgba(255, 114, 32, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bar {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .bar h1 {
+    font-size: 1.1rem;
+    padding: 0 15px;
+  }
+}

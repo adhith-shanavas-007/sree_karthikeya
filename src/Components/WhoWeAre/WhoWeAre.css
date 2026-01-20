@@ -1,0 +1,91 @@
+/* Container and Section Layout */
+.who-we-are-section {
+  padding: 60px 20px;
+  background-color: #fafafa;
+  font-family: 'Arial', sans-serif;
+}
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.text-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* --- TEXT ANIMATION (25 Seconds) --- */
+.section-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  min-height: 150px;
+}
+
+.typewriter-text {
+  display: inline-block;
+  white-space: normal; 
+  overflow: hidden;
+  width: 100%;
+  /* Typing effect set to 25 seconds */
+  animation: typingEffect 25s steps(500, end) forwards;
+}
+
+@keyframes typingEffect {
+  from { max-height: 0; opacity: 0; }
+  to { max-height: 1000px; opacity: 1; }
+}
+
+/* --- IMAGE ANIMATION (25 Seconds) --- */
+.image-content {
+  flex: 1;
+  min-width: 300px;
+  overflow: hidden; /* Keeps the zoom inside the box */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.who-we-are-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  /* Image Dive effect set to 25 seconds */
+  animation: imageDive 25s ease-in-out infinite;
+}
+
+@keyframes imageDive {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2) rotate(1deg); } /* Dives in and tilts slightly */
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .typewriter-text {
+    animation: none; /* Recommended: disable typing on small screens for better UX */
+    overflow: visible;
+  }
+}
