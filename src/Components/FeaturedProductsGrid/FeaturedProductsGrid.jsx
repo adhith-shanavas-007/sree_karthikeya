@@ -8,7 +8,7 @@ import furnitur from '../../assets/furnitur.png';
 import prop from '../../assets/prop.jpeg';
 import ck from '../../assets/ck.jpeg';
 import AA from '../../assets/AA.png';
-import ww from '../../assets/ww.png';
+import img from "../../assets/WW.png";
 import mm from '../../assets/mm.png';
 
 const FeaturedProductsGrid = () => {
@@ -20,7 +20,7 @@ const FeaturedProductsGrid = () => {
     { id: 5, image: mm, name: "" },
     { id: 6, image: ck, name: "" },
     { id: 7, image: AA, name: "" },
-    { id: 8, image: ww, name: "" },
+    { id: 8, image: img, name: "" }, 
   ]; 
 
   return (
